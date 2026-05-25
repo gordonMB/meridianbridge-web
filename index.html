@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Bridge — World-Class Diagnostics in China</title>
+<meta name="description" content="Whether you're waiting months for a scan or can't afford what your healthcare system charges — Meridian Bridge connects you with government-certified hospitals in Guangdong, China.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #141412;
+  --warm: #faf8f2;
+  --parchment: #f2ede0;
+  --jade: #2a5c45;
+  --jade-mid: #3d7a5e;
+  --jade-light: #e8f2ec;
+  --gold: #b8843a;
+  --gold-light: #f5e6c8;
+  --stone: #6b6355;
+  --mist: #ddd8cc;
+  --red-soft: #8b3a3a;
+  --white: #ffffff;
+  --shadow: 0 4px 32px rgba(20,20,18,0.08);
+  --shadow-lg: 0 12px 48px rgba(20,20,18,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--warm);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(250,248,242,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184,132,58,0.15);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(20,20,18,0.08); }
+
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.nav-logo-icon { width: 34px; height: 34px; flex-shrink: 0; }
+.nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+.nav-logo-text span { color: var(--jade); }
+
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.82rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; color: var(--stone); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--jade); }
+.nav-cta { background: var(--jade) !important; color: var(--white) !important; padding: 0.55rem 1.35rem; border-radius: 2px !important; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--jade-mid) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(42,92,69,0.06) 0%, transparent 55%),
+              radial-gradient(ellipse at 10% 80%, rgba(184,132,58,0.05) 0%, transparent 50%);
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 4rem 5rem 5rem;
+  position: relative; z-index: 2;
+}
+
+.eyebrow {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.eyebrow-line { width: 28px; height: 1.5px; background: var(--gold); }
+.eyebrow-text { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.2vw, 4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--jade); }
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--stone);
+  max-width: 480px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* Comparison table */
+.hero-compare {
+  background: var(--parchment);
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.compare-table { width: 100%; border-collapse: collapse; }
+.compare-table th {
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--stone); font-weight: 500; padding: 0 0 0.6rem 0;
+  text-align: left; border-bottom: 1px solid var(--mist);
+}
+.compare-table th:last-child { text-align: right; color: var(--jade); }
+.compare-table td {
+  font-size: 0.85rem; color: var(--ink); padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(221,216,204,0.4);
+}
+.compare-table td:first-child { color: var(--stone); }
+.compare-table td.bad { color: var(--red-soft); font-weight: 500; text-align: center; }
+.compare-table td.good { color: var(--jade); font-weight: 500; text-align: right; }
+.compare-table tr:last-child td { border-bottom: none; }
+
+.hero-cta-group { display: flex; flex-direction: column; gap: 0.75rem; max-width: 340px; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  background: var(--jade); color: var(--white);
+  padding: 1rem 2rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;
+  letter-spacing: 0.02em; text-decoration: none; border: none; cursor: pointer;
+  border-radius: 2px; transition: all 0.25s;
+}
+.btn-primary:hover { background: var(--jade-mid); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(42,92,69,0.25); }
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--jade); color: var(--jade);
+  padding: 0.9rem 2rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 400;
+  text-decoration: none; border-radius: 2px; transition: all 0.2s; background: transparent; cursor: pointer;
+}
+.btn-outline:hover { background: var(--jade); color: var(--white); }
+
+.hero-trust { font-size: 0.75rem; color: var(--stone); opacity: 0.8; }
+
+/* Hero right */
+.hero-right {
+  position: relative; background: var(--parchment); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-right-pattern {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(42,92,69,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(184,132,58,0.05) 0%, transparent 50%);
+}
+
+.stat-stack {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; gap: 1.25rem;
+  padding: 3rem;
+  width: 100%;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: 3px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(184,132,58,0.1);
+  opacity: 0; transform: translateX(24px);
+  animation: cardIn 0.6s forwards;
+}
+.stat-card:nth-child(1) { animation-delay: 0.3s; }
+.stat-card:nth-child(2) { animation-delay: 0.5s; }
+.stat-card:nth-child(3) { animation-delay: 0.7s; }
+.stat-card:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes cardIn { to { opacity: 1; transform: translateX(0); } }
+
+.stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; }
+.stat-flag { font-size: 1rem; }
+.stat-row { display: flex; align-items: baseline; gap: 1rem; }
+.stat-before { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; color: var(--red-soft); opacity: 0.65; text-decoration: line-through; text-decoration-color: rgba(139,58,58,0.35); }
+.stat-after { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; color: var(--jade); }
+.stat-desc { font-size: 0.76rem; color: var(--stone); margin-top: 0.2rem; }
+
+/* ── MARQUEE ── */
+.marquee { background: var(--jade); padding: 0.85rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; animation: ticker 35s linear infinite; }
+.marquee-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2.5rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.82); font-weight: 400; }
+.marquee-dot { width: 3px; height: 3px; background: var(--gold-light); border-radius: 50%; flex-shrink: 0; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 5rem; max-width: 1240px; margin: 0 auto; }
+.section-full { padding: 6rem 5rem; }
+.section-full-inner { max-width: 1240px; margin: 0 auto; }
+
+.section-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.section-eyebrow-line { width: 22px; height: 1.5px; background: var(--gold); }
+.section-eyebrow-text { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400; line-height: 1.2;
+  color: var(--ink); max-width: 640px;
+  margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--jade); }
+.section-body { font-size: 0.95rem; color: var(--stone); max-width: 560px; margin-bottom: 3.5rem; line-height: 1.8; }
+
+/* ── PROBLEM ── */
+.problem { background: var(--ink); }
+.problem .section-eyebrow-text { color: var(--gold-light); opacity: 0.8; }
+.problem .section-eyebrow-line { background: var(--gold); }
+.problem .section-title { color: var(--white); max-width: 820px; }
+
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 3.5rem; }
+.problem-col { background: rgba(255,255,255,0.03); padding: 2.5rem; }
+.problem-col:last-child { background: rgba(42,92,69,0.15); }
+.problem-col-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.problem-stat { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+.problem-stat.green { color: #7ec8a0; }
+.problem-body { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
+.problem-body strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+/* ── HOSPITALS ── */
+.hospitals-rtb { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.rtb-card {
+  background: var(--white); padding: 1.75rem;
+  border-radius: 3px; border: 1px solid var(--mist);
+  box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.rtb-card.visible { opacity: 1; transform: translateY(0); }
+.rtb-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.rtb-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+.rtb-body { font-size: 0.83rem; color: var(--stone); line-height: 1.7; }
+
+.hospital-note {
+  background: var(--jade-light);
+  border-left: 3px solid var(--jade);
+  padding: 1.5rem 1.75rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.hospital-note-icon { color: var(--jade); flex-shrink: 0; margin-top: 2px; }
+.hospital-note-text { font-size: 0.88rem; color: var(--ink); line-height: 1.75; }
+.hospital-note-text strong { color: var(--jade); font-weight: 600; }
+
+/* ── HOW IT WORKS ── */
+.hiw { background: var(--parchment); }
+.steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--mist); margin-top: 3rem; }
+.step { background: var(--warm); padding: 2.5rem; position: relative; }
+.step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: var(--mist); line-height: 1; margin-bottom: 0.75rem; }
+.step-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 0.6rem; }
+.step-body { font-size: 0.86rem; color: var(--stone); line-height: 1.75; }
+.step.accent { background: var(--jade); }
+.step.accent .step-num { color: rgba(255,255,255,0.15); }
+.step.accent .step-title { color: var(--white); }
+.step.accent .step-body { color: rgba(255,255,255,0.75); }
+
+/* ── PRICING ── */
+.pricing-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+
+.fee-card {
+  background: var(--white); border: 1px solid var(--mist);
+  border-radius: 3px; padding: 2.5rem;
+  box-shadow: var(--shadow);
+  position: sticky; top: 100px;
+}
+.fee-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; }
+.fee-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+.fee-price { display: flex; align-items: baseline; gap: 0.25rem; margin: 1rem 0; }
+.fee-currency { font-size: 1.1rem; color: var(--stone); }
+.fee-amount { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; color: var(--jade); line-height: 1; }
+.fee-desc { font-size: 0.8rem; color: var(--stone); font-style: italic; margin-bottom: 1.5rem; }
+.fee-includes { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+.fee-includes li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.84rem; color: var(--stone); }
+.fee-check { width: 16px; height: 16px; background: var(--jade-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.fee-check svg { width: 8px; height: 8px; color: var(--jade); }
+.fee-not-included { font-size: 0.78rem; color: var(--stone); opacity: 0.7; line-height: 1.7; padding-top: 1.25rem; border-top: 1px solid var(--mist); }
+
+/* Comparison card */
+.compare-card { background: var(--white); border: 1px solid var(--mist); border-radius: 3px; padding: 2rem; box-shadow: var(--shadow); }
+.compare-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+.compare-card-sub { font-size: 0.83rem; color: var(--stone); margin-bottom: 1.5rem; }
+
+.country-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border: 1px solid var(--mist); border-radius: 3px; overflow: hidden; }
+.country-tab {
+  flex: 1; padding: 0.65rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
+  text-align: center; cursor: pointer; border: none; background: var(--warm); color: var(--stone);
+  transition: all 0.2s; font-family: 'Outfit', sans-serif;
+}
+.country-tab:not(:last-child) { border-right: 1px solid var(--mist); }
+.country-tab.active { background: var(--jade); color: var(--white); }
+.country-tab:hover:not(.active) { background: var(--parchment); }
+
+.compare-table-wrap { display: none; }
+.compare-table-wrap.active { display: block; animation: fadeUp 0.3s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.comp-table { width: 100%; border-collapse: collapse; }
+.comp-table th { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone); font-weight: 500; padding: 0 0 0.6rem 0; text-align: left; border-bottom: 2px solid var(--mist); }
+.comp-table th:nth-child(2) { text-align: center; color: var(--red-soft); }
+.comp-table th:last-child { text-align: right; color: var(--jade); }
+.comp-table td { font-size: 0.82rem; padding: 0.55rem 0; border-bottom: 1px solid rgba(221,216,204,0.5); color: var(--ink); vertical-align: middle; }
+.comp-table td:first-child { color: var(--stone); }
+.comp-table td:nth-child(2) { text-align: center; color: var(--red-soft); font-weight: 500; }
+.comp-table td:last-child { text-align: right; color: var(--jade); font-weight: 500; }
+.comp-table tr:last-child td { border-bottom: none; font-weight: 600; font-size: 0.88rem; }
+.comp-table tr:last-child td:first-child { color: var(--ink); }
+
+.compare-note { font-size: 0.75rem; color: var(--stone); font-style: italic; margin-top: 1rem; line-height: 1.6; }
+
+/* ── QUIZ ── */
+.quiz-section { background: var(--parchment); }
+.quiz-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: center; }
+
+.quiz-reassurance { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
+.quiz-reassurance-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.83rem; color: var(--stone); line-height: 1.5; }
+.quiz-r-icon { width: 18px; height: 18px; background: var(--jade-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.quiz-r-icon svg { width: 9px; height: 9px; color: var(--jade); }
+
+.quiz-card { background: var(--white); border: 1px solid var(--mist); border-radius: 4px; padding: 2.25rem; box-shadow: var(--shadow-lg); }
+.quiz-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+.quiz-card-sub { font-size: 0.8rem; color: var(--stone); margin-bottom: 1.5rem; }
+
+.quiz-progress { display: flex; gap: 4px; margin-bottom: 1.75rem; }
+.qp-bar { height: 2px; flex: 1; background: var(--mist); border-radius: 2px; transition: background 0.3s; }
+.qp-bar.done { background: var(--jade-mid); }
+.qp-bar.active { background: var(--jade); }
+
+.quiz-q { display: none; animation: fadeUp 0.3s ease; }
+.quiz-q.active { display: block; }
+.quiz-q-num { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.4rem; }
+.quiz-q-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 1.1rem; line-height: 1.4; }
+
+.quiz-options { display: flex; flex-direction: column; gap: 0.45rem; }
+.quiz-opt {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.75rem 1rem; border: 1.5px solid var(--mist); border-radius: 3px;
+  cursor: pointer; font-size: 0.84rem; color: var(--stone);
+  background: var(--white); text-align: left; width: 100%;
+  font-family: 'Outfit', sans-serif; transition: all 0.2s;
+}
+.quiz-opt:hover { border-color: var(--jade-mid); color: var(--jade); background: var(--jade-light); }
+.quiz-opt.selected { border-color: var(--jade); color: var(--jade); background: var(--jade-light); }
+.quiz-radio { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid var(--mist); flex-shrink: 0; transition: all 0.2s; }
+.quiz-opt.selected .quiz-radio { border-color: var(--jade); background: var(--jade); box-shadow: inset 0 0 0 2.5px var(--white); }
+
+.quiz-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.25rem; }
+.quiz-back { font-size: 0.78rem; color: var(--stone); background: none; border: none; cursor: pointer; transition: color 0.2s; font-family: 'Outfit', sans-serif; }
+.quiz-back:hover { color: var(--ink); }
+.quiz-next { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--jade); color: var(--white); border: none; padding: 0.65rem 1.4rem; font-family: 'Outfit', sans-serif; font-size: 0.84rem; font-weight: 500; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.quiz-next:hover:not(:disabled) { background: var(--jade-mid); }
+.quiz-next:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.quiz-result { display: none; text-align: center; animation: fadeUp 0.4s ease; }
+.quiz-result.active { display: block; }
+.quiz-result-icon { width: 52px; height: 52px; background: var(--jade-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; }
+.quiz-result-icon svg { width: 22px; height: 22px; color: var(--jade); }
+.quiz-result-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; color: var(--ink); margin-bottom: 0.65rem; line-height: 1.3; }
+.quiz-result-body { font-size: 0.85rem; color: var(--stone); line-height: 1.75; margin-bottom: 1.4rem; }
+.quiz-result-cta { display: flex; flex-direction: column; gap: 0.6rem; }
+.quiz-restart { font-size: 0.75rem; color: var(--stone); background: none; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; }
+
+/* ── TRUST ── */
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--mist); margin-top: 3rem; }
+.trust-card { background: var(--warm); padding: 2.5rem; }
+.trust-card-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; }
+.trust-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 0.65rem; }
+.trust-body { font-size: 0.85rem; color: var(--stone); line-height: 1.75; }
+
+/* ── FAQ ── */
+.faq-bg { background: var(--parchment); }
+.faq-inner { max-width: 780px; margin: 0 auto; }
+.faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; background: var(--mist); }
+.faq-item { background: var(--warm); }
+.faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: var(--ink); transition: color 0.2s; gap: 1rem; }
+.faq-q:hover, .faq-item.open .faq-q { color: var(--jade); }
+.faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--stone); }
+.faq-item.open .faq-q svg { transform: rotate(45deg); color: var(--jade); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; padding: 0 1.5rem; }
+.faq-item.open .faq-a { max-height: 500px; padding: 0 1.5rem 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--stone); line-height: 1.8; }
+
+/* ── FINAL CTA ── */
+.final-cta { padding: 8rem 5rem; text-align: center; position: relative; overflow: hidden; }
+.final-cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(42,92,69,0.05) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(184,132,58,0.04) 0%, transparent 60%); }
+.final-cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+.final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--ink); margin-bottom: 1.25rem; }
+.final-cta h2 em { font-style: italic; color: var(--jade); }
+.final-cta p { font-size: 0.95rem; color: var(--stone); line-height: 1.8; margin-bottom: 2.5rem; }
+.final-cta-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); color: rgba(255,255,255,0.45); padding: 3rem 5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: rgba(255,255,255,0.8); }
+.footer-logo span { color: #7ec8a0; }
+.footer-note { font-size: 0.73rem; line-height: 1.6; max-width: 420px; text-align: center; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.65); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 4rem 1.5rem 3rem; }
+  .hero-right { display: none; }
+  .section, .section-full { padding: 4rem 1.5rem; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .hospitals-rtb { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .pricing-wrap { grid-template-columns: 1fr; }
+  .fee-card { position: static; }
+  .quiz-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .final-cta { padding: 5rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  .footer-note { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none">
+      <circle cx="17" cy="17" r="16" stroke="#2a5c45" stroke-width="1.5"/>
+      <line x1="3" y1="17" x2="31" y2="17" stroke="#2a5c45" stroke-width="1.5"/>
+      <ellipse cx="17" cy="17" rx="8" ry="16" stroke="#b8843a" stroke-width="1" opacity="0.55"/>
+    </svg>
+    <span class="nav-logo-text">Meridian <span>Bridge</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#hospitals">Hospitals</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://calendly.com/gordon-meridianbridge/15min-consultation" target="_blank" class="nav-cta">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">World-Class Diagnostics in China. Handled for You.</span>
+    </div>
+    <h1>Your health has been<br><em>waiting long enough.</em></h1>
+    <p class="hero-sub">Whether you're facing months of waiting for a scan or can't afford what your healthcare system charges — Meridian Bridge connects you with government-certified hospitals in Guangdong, China, with a guide who speaks your language and theirs.</p>
+
+    <div class="hero-compare">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Diagnostic</th><th>At Home</th><th>Guangdong, China</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MRI wait time</td><td class="bad">18 weeks (CA)</td><td class="good">Book this week</td></tr>
+          <tr><td>Single MRI cost</td><td class="bad">$2–5K USD (US)</td><td class="good">~$135 USD</td></tr>
+          <tr><td>Comprehensive health screen</td><td class="bad">$3,500–8,000 CAD</td><td class="good">From ~$960 CAD</td></tr>
+          <tr><td>Results turnaround</td><td class="bad">Weeks to months</td><td class="good">10–15 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="#quiz" class="btn-primary">
+        Check If This Is Right For Me
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="hero-trust">Free 15-minute consultation · No commitment · Flat $400 USD fee · No medical markup</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-pattern"></div>
+    <div class="stat-stack">
+      <div class="stat-card">
+        <div class="stat-label">MRI Scan <span class="stat-flag">🇨🇳</span></div>
+        <div class="stat-row"><span class="stat-before">18 weeks</span><span class="stat-after">This week</span></div>
+        <div class="stat-desc">Same Siemens & GE equipment · English report</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Full Blood Panel <span class="stat-flag">🇨🇳</span></div>
+        <div class="stat-row"><span class="stat-before">$700 CAD</span><span class="stat-after">~$100 CAD</span></div>
+        <div class="stat-desc">300+ markers · Same-day processing</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">CT Scan <span class="stat-flag">🇨🇳</span></div>
+        <div class="stat-row"><span class="stat-before">$2,000 USD</span><span class="stat-after">~$120 CAD</span></div>
+        <div class="stat-desc">Low-dose chest CT · Early lung cancer screening</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Comprehensive Health Screen <span class="stat-flag">🇨🇳</span></div>
+        <div class="stat-row"><span class="stat-before">$5,000+ CAD</span><span class="stat-after">~$960 CAD</span></div>
+        <div class="stat-desc">30–60+ items · JCI-certified hospitals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Government-Designated Hospitals</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Western-Standard Equipment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>English-Language Reports</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Flat $400 USD Facilitation Fee</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>No Medical Markup</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Trilingual Support</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Packages From ~CAD $960</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Results in 10–15 Days</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Government-Designated Hospitals</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Western-Standard Equipment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>English-Language Reports</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Flat $400 USD Facilitation Fee</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>No Medical Markup</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Trilingual Support</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Packages From ~CAD $960</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Results in 10–15 Days</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem section-full">
+  <div class="section-full-inner">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Why People Are Coming to China</span>
+    </div>
+    <h2 class="section-title" style="color:white; max-width:820px;">Your healthcare system is either making you wait or making you pay. There's another option.</h2>
+    <div class="problem-grid">
+      <div class="problem-col">
+        <div class="problem-col-label">The Wait</div>
+        <div class="problem-stat">28.6 <span style="font-size:1.5rem">wks</span></div>
+        <p class="problem-body">In public healthcare systems across Canada and the UK, the average wait from GP referral to treatment exceeds <strong>six months</strong>. For a single MRI: <strong>18 weeks</strong>. For a specialist: <strong>15 weeks</strong>. The NHS diagnostic waiting list has <strong>1.6 million people</strong> on it. When something feels wrong, the system tells you to be patient.</p>
+      </div>
+      <div class="problem-col">
+        <div class="problem-col-label">The Cost</div>
+        <div class="problem-stat">$5,000 <span style="font-size:1.5rem">USD</span></div>
+        <p class="problem-body">In the United States, a single MRI costs <strong>$2,000–5,000 USD</strong> — often with insurance complications. A comprehensive health screen that isn't covered runs <strong>$5,000–15,000 USD</strong> at a private clinic. A specialist consultation can exceed <strong>$500 USD</strong> for 15 minutes. The care exists. Most people just can't access it.</p>
+      </div>
+      <div class="problem-col">
+        <div class="problem-col-label">The Alternative</div>
+        <div class="problem-stat green">This week.</div>
+        <p class="problem-body">In Guangdong, the same tests are available this week. At <strong>government-certified hospitals</strong> using the same Siemens, GE, and Philips equipment as hospitals at home. An MRI for <strong>~$135 USD</strong>. A full-body health screen covering 30–60+ items from <strong>~$960 CAD</strong>. Results in <strong>10–15 days</strong>. Meridian Bridge makes that trip possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPITALS -->
+<section id="hospitals" class="section">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <span class="section-eyebrow-text">Our Hospital Network</span>
+  </div>
+  <h2 class="section-title">We only work with Guangdong's <em>official</em> international hospitals.</h2>
+  <p class="section-body">Every hospital Meridian Bridge works with holds formal government designation on Guangdong Province's Official International Medical Service Hospital List. These are not clinics. They are top-tier academic medical centres and internationally certified hospitals with dedicated English-capable international departments that have served patients from around the world for years.</p>
+
+  <div class="hospitals-rtb">
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">🏥</div>
+      <div class="rtb-title">Government-Designated Only</div>
+      <div class="rtb-body">Formally certified by Guangdong Provincial Government as international medical service providers — not self-declared.</div>
+    </div>
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">⚙️</div>
+      <div class="rtb-title">Western-Standard Equipment</div>
+      <div class="rtb-body">Siemens, GE, and Philips imaging throughout — the same brands found in hospitals across North America and the UK.</div>
+    </div>
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">📋</div>
+      <div class="rtb-title">English-Language Reports</div>
+      <div class="rtb-body">English report options available at all partner hospitals — formatted so your doctor at home can understand and act on the results.</div>
+    </div>
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">🩺</div>
+      <div class="rtb-title">Dedicated International Departments</div>
+      <div class="rtb-body">Purpose-built international patient departments with English-capable coordinators — not a general desk that occasionally sees foreign patients.</div>
+    </div>
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">✅</div>
+      <div class="rtb-title">JCI-Certified & Top-Tier Academic</div>
+      <div class="rtb-body">Our network includes JCI-certified facilities — the global gold standard for hospital accreditation — alongside China's highest-rated Level 3 Grade A academic hospitals.</div>
+    </div>
+    <div class="rtb-card reveal">
+      <div class="rtb-icon">🌐</div>
+      <div class="rtb-title">Decades of International Experience</div>
+      <div class="rtb-body">Established, tested infrastructure for international patients. Serving patients from over 180 countries. This isn't new to them.</div>
+    </div>
+  </div>
+
+  <div class="hospital-note reveal">
+    <div class="hospital-note-icon">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2a5c45" stroke-width="1.5"/><path d="M9 6v4M9 12v.5" stroke="#2a5c45" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="hospital-note-text">
+      <strong>How do you know which hospital is right for you?</strong> The right hospital for a cardiac concern is not the right hospital for a neurological assessment or a comprehensive annual screen. Some hospitals in our network lead in gastroenterology. Others in cerebrovascular capabilities. Others are purpose-built for the most seamless international patient experience. After your consultation call, Gordon presents 2–3 options tailored specifically to your situation — your health concerns, budget, and how you're travelling. The recommendation isn't generic. It's built around you.
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="hiw section-full">
+  <div class="section-full-inner">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">The Process</span>
+    </div>
+    <h2 class="section-title">Seven steps from <em>question to clarity.</em></h2>
+
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Free Consultation Call</div>
+        <div class="step-body">A 15-minute call with Gordon. Tell him what's going on — whether you've been waiting months for a specific scan, need a test you can't afford at home, or want a comprehensive health screen you've been putting off. No forms, no commitment. Just a conversation about your situation.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Your Tailored Plan</div>
+        <div class="step-body">Based on your consultation and needs, Gordon researches the best hospital and program suitable for you, and comes back with 2–3 tailored options covering cost, timeline, and everything you need to make an informed decision. You choose what fits.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Booking</div>
+        <div class="step-body">Once you're aligned on a plan, Gordon coordinates your appointment with the hospital's international department. Dates confirmed, everything arranged, nothing left to figure out on your end.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Pre-Trip Preparation</div>
+        <div class="step-body">Your personalised preparation guide arrives 2–3 weeks before travel. VPN setup. Alipay guidance. Dietary and fasting instructions. What to bring and what to expect. An emergency contact sheet with everything you need. A check-in call happens 48 hours before you fly.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">05</div>
+        <div class="step-title">Your Visit</div>
+        <div class="step-body">Arrive at the hospital. The international department's coordinator accompanies you throughout. Tests completed — typically in a single morning or full day. Payment made directly to the hospital on the day at Chinese public rates.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">06</div>
+        <div class="step-title">Your Results Arrive</div>
+        <div class="step-body">Results are processed after your visit. For most clients this takes 10–15 days. Gordon follows up as soon as your results are ready, confirms receipt, and walks through next steps with you.</div>
+      </div>
+      <div class="step reveal" style="grid-column: 1 / -1;">
+        <div class="step-num" style="color: rgba(42,92,69,0.2);">07</div>
+        <div class="step-title">Back Home With a Plan</div>
+        <div class="step-body">Gordon debriefs with you and helps you bring your results to your doctor effectively — what to ask for, how to frame the findings, what follow-up to request. Your trip becomes action, not just information.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <span class="section-eyebrow-text">Transparent Pricing</span>
+  </div>
+  <h2 class="section-title">One flat fee. <em>No surprises.</em></h2>
+  <p class="section-body">Your facilitation fee covers everything Meridian Bridge does. Hospital fees are paid directly to the hospital on the day of your visit at Chinese public rates. We never mark up your care or take a commission from the hospital.</p>
+
+  <div class="pricing-wrap">
+    <div class="fee-card reveal">
+      <div class="fee-label">Meridian Bridge Facilitation Fee</div>
+      <div class="fee-title">Everything before, during &amp; after your trip</div>
+      <div class="fee-price">
+        <span class="fee-currency">USD</span>
+        <span class="fee-amount">400</span>
+      </div>
+      <div class="fee-desc">One flat fee · Every hospital · Every package</div>
+      <ul class="fee-includes">
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Personalised hospital and package recommendation (2–3 tailored options)</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Appointment coordination with the hospital's international department</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Pre-trip preparation guide — VPN, Alipay, dietary prep, what to expect</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Emergency contact sheet</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Pre-trip check-in call (48 hours before departure)</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>WhatsApp availability throughout your trip</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>On-trip coordination if anything needs resolving</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Post-trip debrief call</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>GP handoff support</li>
+        <li><div class="fee-check"><svg viewBox="0 0 8 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4l2 2 4-4"/></svg></div>Results follow-up when your English report arrives</li>
+      </ul>
+      <div class="fee-not-included">
+        <strong style="color:var(--ink)">Not included:</strong> Flights · Hotel · Hospital package fee (paid to hospital on the day) · English report fee at some hospitals (confirmed on your call) · Imaging files on USB (small additional fee, recommended for sharing with your doctor)
+      </div>
+    </div>
+
+    <div class="compare-card reveal">
+      <div class="compare-card-title">How does it compare to home?</div>
+      <div class="compare-card-sub">Select your country to see a side-by-side cost comparison.</div>
+
+      <div class="country-tabs">
+        <button class="country-tab active" onclick="switchCountry('ca', this)">🇨🇦 Canada</button>
+        <button class="country-tab" onclick="switchCountry('uk', this)">🇬🇧 UK</button>
+        <button class="country-tab" onclick="switchCountry('us', this)">🇺🇸 United States</button>
+      </div>
+
+      <!-- Canada -->
+      <div class="compare-table-wrap active" id="compare-ca">
+        <table class="comp-table">
+          <thead><tr><th>Diagnostic</th><th>Canada (private)</th><th>With Meridian Bridge</th></tr></thead>
+          <tbody>
+            <tr><td>MRI scan</td><td>18-wk wait or $1,500–2,500 CAD</td><td>~$180 CAD, this week</td></tr>
+            <tr><td>CT scan</td><td>8-wk wait</td><td>~$120 CAD, this week</td></tr>
+            <tr><td>Full blood panel</td><td>$400–800 CAD</td><td>~$100 CAD</td></tr>
+            <tr><td>Specialist consultation</td><td>15-wk wait</td><td>~$50 CAD, same week</td></tr>
+            <tr><td>Comprehensive health screen</td><td>$3,500–8,000 CAD</td><td>From ~$960 CAD</td></tr>
+            <tr><td>Round-trip flight (YVR–CAN)</td><td>—</td><td>~$900–1,200 CAD</td></tr>
+            <tr><td>Meridian Bridge fee</td><td>—</td><td>~$550 CAD</td></tr>
+            <tr><td><strong>Estimated total</strong></td><td><strong>$3,500–8,000+ CAD</strong></td><td><strong>~$1,500–2,700 CAD</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="compare-note">Canadian visa-free entry to China — no application required for stays up to 30 days. Based on Fraser Institute 2025 data and Medcan/Copeman published pricing.</p>
+      </div>
+
+      <!-- UK -->
+      <div class="compare-table-wrap" id="compare-uk">
+        <table class="comp-table">
+          <thead><tr><th>Diagnostic</th><th>UK (NHS / private)</th><th>With Meridian Bridge</th></tr></thead>
+          <tbody>
+            <tr><td>MRI scan</td><td>NHS: months-long wait</td><td>~£135, this week</td></tr>
+            <tr><td>CT scan</td><td>NHS: 6+ weeks, targets missed</td><td>~£90, this week</td></tr>
+            <tr><td>Full blood panel</td><td>£200–500 (private)</td><td>~£75</td></tr>
+            <tr><td>Comprehensive health screen</td><td>£2,500–6,000 (private)</td><td>From ~£720</td></tr>
+            <tr><td>Specialist consultation</td><td>NHS: 15+ weeks</td><td>~£40, same week</td></tr>
+            <tr><td>Round-trip flight (LHR–CAN)</td><td>—</td><td>~£550–800</td></tr>
+            <tr><td>Meridian Bridge fee</td><td>—</td><td>~£315</td></tr>
+            <tr><td><strong>Estimated total</strong></td><td><strong>£2,500–6,000+ (no flight)</strong></td><td><strong>~£1,200–1,800 all-in</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="compare-note">UK visa-free entry to China — no application required for stays up to 30 days. Based on NHS 2025 waiting data and Bupa/Nuffield Health published pricing.</p>
+      </div>
+
+      <!-- US -->
+      <div class="compare-table-wrap" id="compare-us">
+        <table class="comp-table">
+          <thead><tr><th>Diagnostic</th><th>United States</th><th>With Meridian Bridge</th></tr></thead>
+          <tbody>
+            <tr><td>MRI scan</td><td>$2,000–5,000 USD + insurance</td><td>~$135 USD, this week</td></tr>
+            <tr><td>CT scan</td><td>$1,200–3,000 USD</td><td>~$90 USD, this week</td></tr>
+            <tr><td>Full blood panel</td><td>$400–800 USD</td><td>~$75 USD</td></tr>
+            <tr><td>Specialist consultation</td><td>$300–500 USD per visit</td><td>~$40 USD, same week</td></tr>
+            <tr><td>Comprehensive health screen</td><td>$5,000–15,000 USD</td><td>From ~$720 USD</td></tr>
+            <tr><td>Round-trip flight (LAX–CAN)</td><td>—</td><td>~$700–1,100 USD</td></tr>
+            <tr><td>Meridian Bridge fee</td><td>—</td><td>$400 USD</td></tr>
+            <tr><td><strong>Estimated total</strong></td><td><strong>$2,000–5,000 (single MRI)</strong></td><td><strong>~$1,200–2,000 USD all-in</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="compare-note">US passport holders require a tourist visa for China — straightforward to obtain in advance. Gordon's preparation guide includes entry requirements for your passport.</p>
+      </div>
+
+      <p style="font-size:0.73rem;color:var(--stone);margin-top:1rem;font-style:italic;">All estimates. Gordon confirms your exact costs on the consultation call before you commit to anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="quiz-section section-full">
+  <div class="section-full-inner">
+    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;" class="quiz-wrap">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span class="section-eyebrow-text">Is This Right For You?</span>
+        </div>
+        <h2 class="section-title">Find out in <em>2 minutes.</em></h2>
+        <p class="section-body" style="margin-bottom:0;">Answer five quick questions and we'll tell you whether this makes sense for your situation — and what to expect on a consultation call.</p>
+        <div class="quiz-reassurance">
+          <div class="quiz-reassurance-item">
+            <div class="quiz-r-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5l3 3 5-5"/></svg></div>
+            No commitment — this is information, not a sales pitch
+          </div>
+          <div class="quiz-reassurance-item">
+            <div class="quiz-r-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5l3 3 5-5"/></svg></div>
+            We'll tell you honestly if this isn't the right fit
+          </div>
+          <div class="quiz-reassurance-item">
+            <div class="quiz-r-icon"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5l3 3 5-5"/></svg></div>
+            Your information stays private and is never shared
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-title">Quick Qualification</div>
+        <div class="quiz-card-sub">5 questions · 2 minutes · No signup</div>
+        <div class="quiz-progress">
+          <div class="qp-bar active" data-i="0"></div>
+          <div class="qp-bar" data-i="1"></div>
+          <div class="qp-bar" data-i="2"></div>
+          <div class="qp-bar" data-i="3"></div>
+          <div class="qp-bar" data-i="4"></div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="quiz-q active" data-q="0">
+          <div class="quiz-q-num">Question 1 of 5</div>
+          <div class="quiz-q-text">Where are you based?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-v="ca"><div class="quiz-radio"></div>Canada</button>
+            <button class="quiz-opt" data-v="uk"><div class="quiz-radio"></div>United Kingdom</button>
+            <button class="quiz-opt" data-v="us"><div class="quiz-radio"></div>United States</button>
+            <button class="quiz-opt" data-v="other"><div class="quiz-radio"></div>Somewhere else</button>
+          </div>
+          <div class="quiz-nav"><span></span><button class="quiz-next" disabled>Next <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-q" data-q="1">
+          <div class="quiz-q-num">Question 2 of 5</div>
+          <div class="quiz-q-text">What's prompting you to explore this?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-v="wait"><div class="quiz-radio"></div>I've been waiting months for a specific scan or test</button>
+            <button class="quiz-opt" data-v="cost"><div class="quiz-radio"></div>I need a diagnostic test I can't afford at home</button>
+            <button class="quiz-opt" data-v="screen"><div class="quiz-radio"></div>I want a comprehensive health screen I can't easily access</button>
+            <button class="quiz-opt" data-v="curious"><div class="quiz-radio"></div>I'm curious and want to learn more</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="quiz-next" disabled>Next <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-q" data-q="2">
+          <div class="quiz-q-num">Question 3 of 5</div>
+          <div class="quiz-q-text">What type of care are you looking for?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-v="scan"><div class="quiz-radio"></div>A specific scan — MRI, CT, or ultrasound</button>
+            <button class="quiz-opt" data-v="full"><div class="quiz-radio"></div>A comprehensive full-body health screen</button>
+            <button class="quiz-opt" data-v="blood"><div class="quiz-radio"></div>Blood work and lab tests</button>
+            <button class="quiz-opt" data-v="unsure"><div class="quiz-radio"></div>Not sure — I want guidance</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="quiz-next" disabled>Next <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-q" data-q="3">
+          <div class="quiz-q-num">Question 4 of 5</div>
+          <div class="quiz-q-text">When are you thinking of travelling?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-v="soon"><div class="quiz-radio"></div>As soon as possible — within 1–2 months</button>
+            <button class="quiz-opt" data-v="quarter"><div class="quiz-radio"></div>In the next 3–6 months</button>
+            <button class="quiz-opt" data-v="exploring"><div class="quiz-radio"></div>Still exploring — no fixed timeline</button>
+            <button class="quiz-opt" data-v="unsure"><div class="quiz-radio"></div>Not sure yet</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="quiz-next" disabled>Next <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-q" data-q="4">
+          <div class="quiz-q-num">Question 5 of 5</div>
+          <div class="quiz-q-text">What's your biggest concern about healthcare in China?</div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-v="language"><div class="quiz-radio"></div>Language — I don't speak Mandarin</button>
+            <button class="quiz-opt" data-v="quality"><div class="quiz-radio"></div>Quality — are the hospitals actually good?</button>
+            <button class="quiz-opt" data-v="logistics"><div class="quiz-radio"></div>Logistics — VPN, payments, getting around</button>
+            <button class="quiz-opt" data-v="results"><div class="quiz-radio"></div>Understanding my results when I get home</button>
+          </div>
+          <div class="quiz-nav"><button class="quiz-back">← Back</button><button class="quiz-next" disabled>See My Result <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M6.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-result" id="quiz-result">
+          <div class="quiz-result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div class="quiz-result-title" id="result-title">You're a strong candidate for Meridian Bridge.</div>
+          <div class="quiz-result-body" id="result-body">Based on your answers, a diagnostic trip to Guangdong could get you the answers you've been waiting for — at a fraction of the cost at home, with a guide who handles every detail. Book a free consultation call and Gordon will walk you through exactly what your trip would look like.</div>
+          <div class="quiz-result-cta">
+            <a href="https://calendly.com/gordon-meridianbridge/15min-consultation" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">Book My Free Consultation →</a>
+            <button class="quiz-restart" onclick="resetQuiz()">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <span class="section-eyebrow-text">Why Trust Meridian Bridge</span>
+  </div>
+  <h2 class="section-title">Built by someone who's <em>been through it himself.</em></h2>
+  <div class="trust-grid">
+    <div class="trust-card reveal">
+      <svg class="trust-card-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#2a5c45" stroke-width="1.5"/><path d="M12 20h16M20 12C15 12 12 16 12 20s3 8 8 8 8-4 8-8-3-8-8-8z" stroke="#b8843a" stroke-width="1.2"/></svg>
+      <div class="trust-title">The founder's story</div>
+      <div class="trust-body">A few years ago, I flew to China and got a comprehensive health screen. I wasn't sick. I wasn't particularly worried. I just wanted to know. What came back changed how I live — a chronic condition I had no idea I was managing, caught early enough to do something about. I adjusted my diet, my habits, the things I pay attention to. That single trip gave me more clarity about my own health than years of routine check-ups had. That experience is why I built Meridian Bridge. If it gave me that, it can do the same for others.</div>
+    </div>
+    <div class="trust-card reveal">
+      <svg class="trust-card-icon" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="2" stroke="#2a5c45" stroke-width="1.5"/><path d="M14 20h12M20 14v12" stroke="#b8843a" stroke-width="1.2"/></svg>
+      <div class="trust-title">Government-designated hospitals only</div>
+      <div class="trust-body">Meridian Bridge works exclusively with hospitals on Guangdong Province's official International Medical Service Pilot Hospital list — state-endorsed international patient centres with dedicated English-capable departments and imaging equipment from Siemens, GE, and Philips. Not every hospital in China. Only the ones formally designated to serve patients like you.</div>
+    </div>
+    <div class="trust-card reveal">
+      <svg class="trust-card-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#2a5c45" stroke-width="1.5"/><path d="M14 20l4 4 8-8" stroke="#b8843a" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="trust-title">No markup. Total transparency.</div>
+      <div class="trust-body">You pay Meridian Bridge a flat $400 USD facilitation fee. You pay the hospital directly at Chinese public rates on the day of your visit. What the hospital charges you is exactly what any patient pays. No commission, no hidden fees, no surprises. Gordon's incentive is a great experience — not a bigger bill.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-bg section-full">
+  <div class="section-full-inner">
+    <div class="faq-inner">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Common Questions</span>
+      </div>
+      <h2 class="section-title">Your questions, <em>answered honestly.</em></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Are Chinese hospitals actually good enough for this?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Yes — with important context. The hospitals in our network are not clinics or pop-up medical centres. They are top-tier academic hospitals and JCI-certified facilities — holding the same accreditation standard used to certify hospitals in the US, Canada, and UK. They use Siemens, GE, and Philips imaging equipment. They have dedicated international patient departments that have been serving foreign patients for years. In 2024, Chinese hospitals treated 1.28 million international patients — a 73.6% increase over three years. The quality is real. What's been missing for most Western patients is a trusted guide to navigate the system. That's the gap Meridian Bridge fills.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">I just need one specific scan — can Meridian Bridge still help?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Yes. If you've been waiting months for an MRI, CT, or another specific test, Meridian Bridge can help you access that at a government-certified hospital — often within a week of booking. Many clients who come for a single scan end up completing a comprehensive health screen at the same time, since they're already there and the additional cost is a fraction of what it would be at home. But there's no obligation — if you need one answer, we'll help you get it.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">When will I get my results?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Results are processed after your visit — you will not receive your English report before you fly home. Depending on the hospital and package, results typically arrive within 10–15 days of your visit. Gordon follows up as soon as your results are ready, confirms receipt, and walks through next steps with you. For someone who has been waiting 18 weeks for a single referral, 10–15 days is a fundamentally different experience.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Which hospital will I go to?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Gordon recommends 2–3 options on your consultation call, tailored to your specific situation — your health concerns, budget, and travel routing. Different hospitals in our network have different clinical strengths. Some lead in cardiac assessment, others in cerebrovascular screening, others in gastrointestinal diagnostics. The recommendation is personalised, not generic. You choose what fits.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if I don't speak Mandarin or Cantonese?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>That's exactly why Meridian Bridge exists. Each hospital's international department has English-capable coordinators who will be with you throughout your visit — from registration through to results collection. Gordon is trilingual (English, Cantonese, Mandarin) and available on WhatsApp throughout your trip for anything that needs real-time support.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will my doctor at home be able to use the results?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Yes. English reports are available at all partner hospitals. Gordon provides specific guidance on how to bring your results to your doctor — what to ask for, how to present the findings, and what follow-up to request. Your trip becomes a tool for action at home, not just a report you file away.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How much does everything cost, really?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>It depends on the hospital and package. As a realistic guide: Meridian Bridge fee ($400 USD) + hospital package (from ~$690 USD at entry level) + return flights (varies by origin) = approximately CAD $1,500–$2,000 total for most clients. Use the comparison tool in the Pricing section to see how that stacks up against costs in your country. Gordon confirms your exact package cost on the consultation call — before you commit to anything.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is this legal?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Completely. Seeking medical care abroad is legal for patients from all countries. Meridian Bridge is a marketing and client services company — not a medical provider — and does not provide medical advice. All medical services are delivered by licensed hospitals in China. Patients retain full autonomy over all medical decisions.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need a visa?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>It depends on your passport. Canadian and UK passport holders currently qualify for visa-free entry to China for stays up to 30 days — no application required before travel. US passport holders require a tourist visa, which is straightforward to obtain in advance. Gordon's preparation guide includes full entry requirements for your specific passport. A 3–5 day trip fits comfortably within any of these windows.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if my results show something serious?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>If your results flag something requiring urgent follow-up, Gordon calls you personally within 24 hours of being notified. Not to interpret the results — that's your doctor's role — but to make sure you feel supported and know exactly what to do next. You will not come home with concerning findings and no idea how to act on them. That follow-up call is part of what the facilitation fee covers.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What about travel insurance?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+          <div class="faq-a"><p>Proof of emergency travel insurance is required before Gordon confirms any booking. Standard travel insurance covers accidents and unrelated emergencies during travel — it does not cover the health check procedures themselves. Your preparation guide includes a plain-English explanation of what to look for and what questions to ask your insurer.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-inner reveal">
+    <div class="eyebrow" style="justify-content:center;">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Ready When You Are</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2>Stop waiting.<br>Stop overpaying.<br><em>Start knowing.</em></h2>
+    <p>The answers your healthcare system has been delaying are available now — at government-certified hospitals in Guangdong, with a guide who handles everything from booking to results.</p>
+    <div class="final-cta-btns">
+      <a href="https://calendly.com/gordon-meridianbridge/15min-consultation" target="_blank" class="btn-primary">Check If This Is Right For Me →</a>
+      <a href="https://tally.so/r/7Rpe72" target="_blank" class="btn-outline">Send an Inquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Meridian <span>Bridge</span></div>
+  <div class="footer-note">Meridian Bridge is a marketing and client services company. We are not a medical provider and do not provide medical advice. All medical services are delivered by licensed hospitals in the People's Republic of China. Registered in British Columbia, Canada.</div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:gordon@meridianbridge.ca">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Country comparison tabs
+function switchCountry(country, btn) {
+  document.querySelectorAll('.country-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.compare-table-wrap').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('compare-' + country).classList.add('active');
+}
+
+// Quiz
+const questions = document.querySelectorAll('.quiz-q');
+const bars = document.querySelectorAll('.qp-bar');
+const resultEl = document.getElementById('quiz-result');
+let current = 0;
+let answers = {};
+
+function updateBars(q) {
+  bars.forEach((b, i) => {
+    b.classList.remove('active', 'done');
+    if (i < q) b.classList.add('done');
+    if (i === q) b.classList.add('active');
+  });
+}
+
+questions.forEach(q => {
+  const opts = q.querySelectorAll('.quiz-opt');
+  const next = q.querySelector('.quiz-next');
+  const back = q.querySelector('.quiz-back');
+  const qi = parseInt(q.dataset.q);
+
+  opts.forEach(o => {
+    o.addEventListener('click', () => {
+      opts.forEach(x => x.classList.remove('selected'));
+      o.classList.add('selected');
+      answers[qi] = o.dataset.v;
+      if (next) next.disabled = false;
+    });
+  });
+
+  if (next) next.addEventListener('click', () => {
+    if (next.disabled) return;
+    q.classList.remove('active');
+    current++;
+    if (current < questions.length) {
+      questions[current].classList.add('active');
+      updateBars(current);
+    } else {
+      bars.forEach(b => { b.classList.remove('active'); b.classList.add('done'); });
+      showResult();
+    }
+  });
+
+  if (back) back.addEventListener('click', () => {
+    q.classList.remove('active');
+    current--;
+    questions[current].classList.add('active');
+    updateBars(current);
+  });
+});
+
+function showResult() {
+  resultEl.classList.add('active');
+  const loc = answers[0];
+  const reason = answers[1];
+  const type = answers[2];
+  const titleEl = document.getElementById('result-title');
+  const bodyEl = document.getElementById('result-body');
+
+  let title = "You're a strong candidate for Meridian Bridge.";
+  let body = "Based on your answers, a diagnostic trip to Guangdong could get you the answers you've been waiting for — at a fraction of the cost at home. Book a free consultation call and Gordon will walk you through exactly what your trip would look like.";
+
+  if (reason === 'wait') {
+    title = "You don't have to keep waiting.";
+    body = "You're in a system that's made you wait months for information you need now. In Guangdong, that same diagnostic care is available this week — often for less than the cost of a single private consultation at home. Book a free 15-minute call and let's map out what your trip would look like.";
+  } else if (reason === 'cost') {
+    title = "The cost comparison is exactly as dramatic as you've heard.";
+    body = "A single MRI that costs $2,000–5,000 USD in the US runs around $135 USD in Guangdong. A comprehensive health screen covering 30–60+ items starts from ~$960 CAD all-in. Book a free call and Gordon will show you exactly what your specific tests would cost.";
+  } else if (reason === 'screen') {
+    title = "A comprehensive health screen is exactly what we facilitate.";
+    body = "A full-body diagnostic screen in Guangdong — blood panel, imaging, cardiac assessment, and more — in a single day, at a government-certified hospital. Results in 10–15 days. Book a free consultation and Gordon will walk you through the package that fits your situation.";
+  }
+
+  if (loc === 'us') {
+    body += " Note: US passport holders require a tourist visa for China — Gordon's preparation guide walks you through the process.";
+  }
+
+  titleEl.textContent = title;
+  bodyEl.textContent = body;
+}
+
+function resetQuiz() {
+  current = 0; answers = {};
+  resultEl.classList.remove('active');
+  questions.forEach(q => {
+    q.classList.remove('active');
+    q.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
+    const n = q.querySelector('.quiz-next');
+    if (n) n.disabled = true;
+  });
+  questions[0].classList.add('active');
+  updateBars(0);
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
